@@ -10,13 +10,15 @@ import java.time.Duration;
 @Configuration
 public class SimilarProductsConfig {
 
-    private static final int TIMEOUT = 500;
+    private static final int CONNECTION_TIMEOUT = 500;
+    private static final int READ_TIMEOUT = 1000;
+    ;
 
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplateBuilder()
-                .setConnectTimeout(Duration.ofMillis(TIMEOUT))
-                .setReadTimeout(Duration.ofMillis(TIMEOUT))
+                .setConnectTimeout(Duration.ofMillis(CONNECTION_TIMEOUT))
+                .setReadTimeout(Duration.ofMillis(READ_TIMEOUT))
                 .build();
     }
 }
