@@ -31,7 +31,7 @@ public abstract class ConsumerBase {
         } catch (final HttpClientErrorException.NotFound notFound) {
             throw new NotFoundException();
         } catch (final Exception e) {
-            throw new ConsumerException(e.getMessage());
+            throw new ConsumerException(e.getCause().getMessage());
         }
 
         if (!response.getStatusCode().equals(HttpStatus.OK)
