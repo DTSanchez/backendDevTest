@@ -45,14 +45,6 @@ public class ProductConsumerTest {
 
     // CONSUMER
     @Test
-    public void consumerProductIdNullError() {
-
-        Assertions.assertThrows(ConsumerException.class,
-                () -> this.underTest.consume(any(), any(Class.class), (String) null)
-        );
-    }
-
-    @Test
     public void consumerReturnsNotFound() {
 
         when(this.restTemplate.getForEntity(eq(TEST_URI), any(), any(String.class)))
